@@ -1,0 +1,65 @@
+<gameScreen>:
+    GridLayout:
+        pos_hint:{'top': 0.99,'right':1}
+        size_hint: 1, .17
+        cols: 2
+        padding: 20
+        Button:
+            text: "Map"
+            on_release: root.spawnMap()
+        Button:
+            text: "World"
+        Button:
+            text: "Hello"
+        Button:
+            text: "World"
+        Button:
+            text: "Hello"
+        Button:
+            text: "World"
+
+<SubWindow>:
+    size_hint: (None, None)
+    FloatLayout:
+        size: root.size
+        pos: root.pos
+        size_hint: (None, None)
+        canvas:
+            Color:
+                rgba: root.bColor
+            Rectangle:
+                size: root.size
+                pos: root.pos
+        Button:
+            size: 20, 20
+            pos: root.buttonPos
+            size_hint: (None, None)
+            text: "X"
+            on_release: root.close(root)
+        FloatLayout:
+            pos: root.innerPos
+            size: root.innerSize
+            size_hint:(None, None)
+            id: content
+            canvas:
+                Color:
+                    rgba: root.innerColor
+                Rectangle:
+                    pos: content.pos
+                    size: root.innerSize
+
+
+<TestObject>:
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: 0, 0
+        FloatLayout
+            pos: 20, 20
+            canvas:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 1
+                Rectangle:
+                    pos: 20, 20
