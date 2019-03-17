@@ -3,6 +3,7 @@ from kivy.uix.screenmanager import ScreenManager
 from gameScreen import GameScreen
 from mapTestScreen import MapTestScreen
 from kivy.config import Config
+import globals
 
 class GameApp(App):
     def build(self):

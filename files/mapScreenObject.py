@@ -2,14 +2,15 @@ from kivy.graphics import *
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty, ListProperty
 import numpy
+import globals as glob
 
 class MapScreenObject(Widget):
     scale = NumericProperty(1.0)
     displacement = ListProperty()
-    def __init__(self, map):
+    def __init__(self):
         self.displacement = (0, 0)
         super().__init__()
-        self.map = map
+        self.map = glob.currentGame.map
         self.isBeingMoved = False
         self.draw()
 

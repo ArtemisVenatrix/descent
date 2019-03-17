@@ -8,8 +8,7 @@ class MapSubwindow(SubWindow):
     def __init__(self, **kwargs):
         self.ready = False
         super().__init__(**kwargs)
-        map = self.loadMap()
-        self.map = MapScreenObject(map)
+        self.map = MapScreenObject()
         self.map.size = self.ids["content"].size
         self.map.pos = self.ids["content"].pos
         self.ids["content"].bind(size=self.update)
@@ -27,21 +26,6 @@ class MapSubwindow(SubWindow):
             f.write(data)
         print("Closing SubWindow...")
         self.parent.remove_widget(self)
-
-    def loadMap(self):
-        try:
-            with open("data/map", 'rb') as f:
-                if len(f.read()) > 0:
-                    f.seek(0)
-                    map = pickle.loads(f.read(), fix_imports=True)
-                    print(map)
-                else:
-                    map = Map(50, 50)
-            return map
-        except:
-            with open("data/map", 'wb') as f:
-                pass
-            self.loadMap()
 
     def scrolled(self, scrollDirection):
         if scrollDirection == 'scrollup':

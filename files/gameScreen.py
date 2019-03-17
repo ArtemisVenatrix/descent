@@ -4,12 +4,16 @@ from mapSubWindow import MapSubwindow
 from kivy.uix.label import Label
 from kivy.uix.widget import Widget
 from kivy.uix.floatlayout import FloatLayout
+import globals as glob
+from game import Game
 
 class GameScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.c = FloatLayout()
         self.add_widget(self.c)
+        self.game = Game("test", mapSize=(50, 50))
+        glob.currentGame = self.game
         #win = SubWindow(bColor=(.5, .5, .5, 1), size=(100, 300), pos=(300, 300))
 
     def spawnMap(self):
@@ -17,5 +21,5 @@ class GameScreen(Screen):
         self.c.add_widget(win)
         print("spawned")
 
-class TestObject(Widget):
-    pass
+    def save(self):
+        glob.currentGame.save()
