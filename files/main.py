@@ -2,9 +2,11 @@ from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from gameScreen import GameScreen
 from mapTestScreen import MapTestScreen
+from kivy.config import Config
 
 class GameApp(App):
     def build(self):
+        Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
         return Root()
 
 class Root(ScreenManager):

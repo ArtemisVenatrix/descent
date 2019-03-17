@@ -13,7 +13,7 @@ class GameScreen(Screen):
         #win = SubWindow(bColor=(.5, .5, .5, 1), size=(100, 300), pos=(300, 300))
 
     def spawnMap(self):
-        win = MapSubwindow(bColor=(.7, .7, .7, 1), size=(100, 300), pos=(300, 300))
+        win = MapSubwindow(bColor=(.7, .7, .7, 1), size=(300, 300), pos=(300, 300))
         self.c.add_widget(win)
         print("spawned")
 
