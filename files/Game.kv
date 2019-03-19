@@ -6,12 +6,13 @@
         padding: 20
         Button:
             text: "Map"
-            on_release: root.spawnMap(0, 1)
+            on_release: root.spawnMap((0.0, 0.0), 1)
         Button:
             text: "Save"
             on_release: root.save()
         Button:
-            text: "Hello"
+            text: "Journal"
+            on_release: root.spawnJournal()
         Button:
             text: "World"
         Button:
@@ -66,3 +67,32 @@
             text: "add text"
             id: button
             on_release: root.addText()
+
+<JournalScreenObject>:
+    BoxLayout:
+        pos: root.pos
+        size: root.size
+        orientation: "vertical"
+        GridLayout:
+            maximimum_height: 40
+            cols: 3
+            Button:
+                text: "5 Minutes"
+            Button:
+                text: "1 Hour"
+            Button:
+                text: "1 Day"
+            Button:
+                text: "1 Week"
+            Button:
+                text: "2 Weeks"
+            Button:
+                text: "1 Month"
+            ScrollView:
+                GridLayout:
+                    cols: 1
+                    padding: 10
+                    spacing: 10
+                    size_hint: 1, None
+                    height: self.minimum_height
+                    id: textBody

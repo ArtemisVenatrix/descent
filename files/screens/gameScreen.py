@@ -1,5 +1,6 @@
 from kivy.uix.screenmanager import Screen
 from subwindows.mapSubWindow import MapSubwindow
+from subwindows.journalSubWindow import JournalSubWindow
 from kivy.uix.floatlayout import FloatLayout
 import globals as glob
 from game import Game
@@ -19,6 +20,10 @@ class GameScreen(Screen):
         win.map.scale = scale
         self.c.add_widget(win)
         print("spawned")
+
+    def spawnJournal(self):
+        win = JournalSubWindow(bColor=(.7, .7, .7, 1), size=(300, 500), pos=(300, 100))
+        self.c.add_widget(win)
 
     def save(self):
         glob.currentGame.save()

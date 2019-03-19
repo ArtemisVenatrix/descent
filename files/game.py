@@ -11,9 +11,15 @@ class Game:
                 self.map = pickle.loads(f.read())
             with open(self.file + "/time.save", "rb") as f:
                 self.time = pickle.loads(f.read())
+            with open(self.file + "/notificationQue.save", "rb") as f:
+                self.notificationQue = pickle.loads(f.read())
+            with open(self.file + "/eventQue.save", "rb") as f:
+                self.eventQue = pickle.loads(f.read())
         else:
             self.map = Map(kwargs["mapSize"][0], kwargs["mapSize"][1])
             self.time = Date(0, 0, 0, 0, 0)
+            self.notificationQue = []
+            self.eventQue = []
 
     def save(self):
         if not os.path.isdir(self.file):
@@ -23,4 +29,10 @@ class Game:
             f.write(data)
         with open(self.file + "/time.save", "wb") as f:
             data = pickle.dumps(self.time, protocol=pickle.HIGHEST_PROTOCOL)
+            f.write(data)
+        with open(self.file + "/notificationQue.save", "wb") as f:
+            data = pickle.dumps(self.notificationQue, protocol=pickle.HIGHEST_PROTOCOL)
+            f.write(data)
+        with open(self.file + "/eventQue.save", "wb") as f:
+            data = pickle.dumps(self.eventQue, protocol=pickle.HIGHEST_PROTOCOL)
             f.write(data)
