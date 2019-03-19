@@ -1,6 +1,5 @@
-from subWindow import SubWindow
+from subwindows.subWindow import SubWindow
 from mapScreenObject import MapScreenObject
-from map import Map
 import pickle
 import numpy
 

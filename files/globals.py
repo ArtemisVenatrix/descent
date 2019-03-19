@@ -1,1 +1,2 @@
 currentGame = None
+currentGameScreen = None

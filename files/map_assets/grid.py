@@ -1,5 +1,5 @@
-from cell import Cell
-from jsonObject import JsonObject
+from map_assets.cell import Cell
+
 
 class Grid:
     def __init__(self, height, width):

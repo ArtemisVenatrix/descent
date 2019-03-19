@@ -1,5 +1,4 @@
-from jsonObject import JsonObject
-from grid import Grid
+from map_assets.grid import Grid
 
 
 class Map:

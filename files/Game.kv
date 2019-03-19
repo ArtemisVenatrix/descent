@@ -6,7 +6,7 @@
         padding: 20
         Button:
             text: "Map"
-            on_release: root.spawnMap()
+            on_release: root.spawnMap(0, 1)
         Button:
             text: "Save"
             on_release: root.save()
@@ -49,18 +49,20 @@
                     pos: content.pos
                     size: root.innerSize
 
-
-<TestObject>:
-    FloatLayout:
-        canvas:
-            Color:
-                rgba: 1, 1, 1, 1
-            Rectangle:
-                pos: 0, 0
-        FloatLayout
-            pos: 20, 20
-            canvas:
-                Color:
-                    rgba: 0.5, 0.5, 0.5, 1
-                Rectangle:
-                    pos: 20, 20
+<ScrollViewTestScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        ScrollView:
+            GridLayout:
+                cols: 1
+                padding: 10
+                spacing: 10
+                size_hint: 1, None
+                width: 500
+                height: self.minimum_height
+                id: textBody
+        Button:
+            size_hint_y: .2
+            text: "add text"
+            id: button
+            on_release: root.addText()

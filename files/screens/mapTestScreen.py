@@ -1,4 +1,3 @@
-from map import Map
 from kivy.uix.screenmanager import Screen
 
 class MapTestScreen(Screen):

@@ -1,5 +1,4 @@
-from jsonObject import JsonObject
-from floor import Floor
+from buildings.floor import Floor
 import random as rand
 
 class Bui1ding:
